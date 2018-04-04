@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 import wikipedia
 from collections import Counter
 
-#test
 
 # hard code stop words for time-saving
 regex = re.compile('[%s]' % re.escape(string.punctuation))
