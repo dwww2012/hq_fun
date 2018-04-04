@@ -1,17 +1,18 @@
-from pytesseract import image_to_string
-from PIL import Image
-import pyscreenshot
-import time
-import string
+from collections import Counter
 import re
 import requests
+import string
+import time
+
 from bs4 import BeautifulSoup
+from PIL import Image
+import pyscreenshot
+from pytesseract import image_to_string
 import wikipedia
-from collections import Counter
+
 from utils import STOP_WORDS, CAP_STOP_WORDS
 
-
-# hard code stop words for time-saving
+#save a regex for cleaning
 regex = re.compile('[%s]' % re.escape(string.punctuation))
 
 
@@ -147,3 +148,4 @@ def run_it():
     while True:
         trigger = input("\nHit space to run\n")
         google_texts()
+

@@ -1,3 +1,4 @@
+# hard code stop words for time-saving
 STOP_WORDS= {'a',
  'about',
  'above',
@@ -177,5 +178,5 @@ STOP_WORDS= {'a',
  'yours',
  'yourself',
  'yourselves'}
- 
+
 CAP_STOP_WORDS = {s.capitalize() for s in STOP_WORDS}
