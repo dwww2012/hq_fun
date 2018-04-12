@@ -52,7 +52,7 @@ def clean_text(txt):
                 ])
     # get rid of punctuation, special characters, etc
     s = re.sub(r'([^\s\w-]|_)+', '', s)
-    s.replace("'s", '')
+    s = s.replace("'s", '')
     # s=regex.sub('', s)
     return s
 
