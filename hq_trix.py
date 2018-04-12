@@ -51,8 +51,7 @@ def clean_text(txt):
                 not in STOP_WORDS.union(CAP_STOP_WORDS)
                 ])
     # get rid of punctuation, special characters, etc
-    s = re.sub(r'([^\s\w-]|_)+', '', s)
-    s.replace("'s", '')
+    s = re.sub(r'([^\s\w]|_)+', '', s)
     # s=regex.sub('', s)
     return s
 
