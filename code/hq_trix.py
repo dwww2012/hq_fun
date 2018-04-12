@@ -138,8 +138,9 @@ def google_texts():
     col_width = max(len(k[0]) for k in count_data) + 2
     print('\nTerm'.ljust(col_width), '|Count |Stars')
     print('-'*(col_width+30))
+    total_found = sum(count_data.values())
     for k, v in count_data:
-        print (k.ljust(col_width)+'|'+str(v).ljust(6)+'|', '*'*v)
+        print (k.ljust(col_width)+'|'+str(v).ljust(6)+'|', '*'*v/float(total_found+1))
     top_terms = Counter(clean_descs.split()).most_common(10)
     print('')
     for k, v in top_terms:
