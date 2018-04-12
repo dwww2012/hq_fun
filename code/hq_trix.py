@@ -57,7 +57,9 @@ def clean_text(txt):
     return s
 
 def get_clean_texts():
-    texts = list(map(clean_text, get_all_texts()))
+    q, a1, a2, a3 = get_all_texts()
+    clean_q = clean_text(q)
+    texts = [clean_q, a1, a2, a3]
     print(texts)
     return texts
 
@@ -135,12 +137,17 @@ def google_texts():
     descs = get_all_descriptions(results)
     clean_descs = clean_text(descs).lower()
     count_data = count_occurences(clean_descs, texts[1:]).items()
+    return clean_descs, count_data
+
+def print_results():
+    clean_descs, count_data = google_texts()
     col_width = max(len(k[0]) for k in count_data) + 2
     print('\nTerm'.ljust(col_width), '|Count |Stars')
     print('-'*(col_width+30))
-    total_found = sum(count_data.values())
+    max_count= max([i[1] for i in count_data])
+    print (max_count)
     for k, v in count_data:
-        print (k.ljust(col_width)+'|'+str(v).ljust(6)+'|', '*'*v/float(total_found+1))
+        print (k.ljust(col_width)+'|'+str(v).ljust(6)+'|', '*'*int(20*v/float(max_count+1)))
     top_terms = Counter(clean_descs.split()).most_common(10)
     print('')
     for k, v in top_terms:
@@ -149,5 +156,5 @@ def google_texts():
 def run_it():
     while True:
         trigger = input("\nHit space to run\n")
-        google_texts()
+        print_results()
 
