@@ -145,7 +145,6 @@ def print_results():
     print('\nTerm'.ljust(col_width), '|Count |Stars')
     print('-'*(col_width+30))
     max_count= max([i[1] for i in count_data])
-    print (max_count)
     for k, v in count_data:
         print (k.ljust(col_width)+'|'+str(v).ljust(6)+'|', '*'*int(20*v/float(max_count+1)))
     top_terms = Counter(clean_descs.split()).most_common(10)
